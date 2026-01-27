@@ -1,9 +1,11 @@
+import Layaout from '../../Components/Layout'
+
 function MyOrders() {
 
   return (
-    <div className="bg-red-100">
+    <Layaout>
         MyOrders
-    </div>
+    </Layaout>
   )
 }
 

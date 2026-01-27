@@ -1,9 +1,11 @@
+import Layaout from '../../Components/Layout'
+
 function NotFound() {
 
   return (
-    <div className="bg-red-100">
+      <Layaout>
         NotFound
-    </div>
+      </Layaout>
   )
 }
 

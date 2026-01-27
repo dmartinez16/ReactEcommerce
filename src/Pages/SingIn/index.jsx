@@ -1,9 +1,11 @@
+import Layaout from '../../Components/Layout'
+
 function SingIn() {
 
   return (
-    <div className="bg-red-100">
+      <Layaout>
         SingIn
-    </div>
+      </Layaout>
   )
 }
 
