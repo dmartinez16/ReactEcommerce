@@ -38,7 +38,7 @@ const NavBar = () => {
       </ul>
 
       <ul className="flex gap-3 items-center">
-        <li>ccgonzalez@syc.com.co</li>
+        <li>dmartinezing16@gmail.com</li>
 
         {ContentRight.map((item, index) => (
           <li key={index}>

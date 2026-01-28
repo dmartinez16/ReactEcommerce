@@ -7,6 +7,8 @@ import SingIn from '../SingIn'
 import './App.css'
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import Navbar from "../../Components/Navbar";
+import { ShoppingCarProvieder } from '../../Context'
+
 
 const AppRoutes = () => {
     let routes = useRoutes([
@@ -22,10 +24,13 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppRoutes/>
-      <Navbar/>
-    </BrowserRouter>
+    <ShoppingCarProvieder>
+      <BrowserRouter>
+        <AppRoutes/>
+        <Navbar/>
+      </BrowserRouter>
+    </ShoppingCarProvieder>
+   
   )
 }
 
