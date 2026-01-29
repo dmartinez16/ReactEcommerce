@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ShoppingCarContext } from "../../Context";
 
 let ContentLeft = [
     { name: "Shopi", to: "/", class: "font-semibold text-lg" },
@@ -17,13 +19,11 @@ let ContentRight = [
 ]
  
 
-
 const NavBar = () => {
-
   const activeStyle = {
     textDecoration: "underline",
   };
-
+  const context = useContext(ShoppingCarContext)
   return (
     <nav className="flex justify-between font-light px-8 py-4 items-center text-sm fixed top-0 z-10 w-full">
       <ul className="flex gap-3 items-center">
@@ -48,6 +48,10 @@ const NavBar = () => {
             </NavLink>
           </li>
         ))}
+
+        <li>
+          {context.count}
+        </li>
       </ul>
     </nav>
   );
