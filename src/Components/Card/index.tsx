@@ -1,7 +1,7 @@
 import { Product } from "../../Types/product";
-import { useState,useContext } from "react";
-import {ShoppingCarProvieder } from "../../Context";
+import { useState } from "react";
 import { useShoppingCar } from "../../Hooks/useShoppingCar";
+import { PlusIcon } from '@heroicons/react/24/outline';
 
 interface CardProps {
   data: Product;
@@ -47,7 +47,7 @@ const Card = ({ data }: CardProps) => {
         <button 
         className='cursor-pointer absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1'
         onClick={() => setCount(count + 1)}>
-          +
+          <PlusIcon className="h-9 text-black font-bold"/>
         </button>
       </figure>
 

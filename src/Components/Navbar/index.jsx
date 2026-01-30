@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ShoppingCarContext } from "../../Context";
+import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 
 let ContentLeft = [
     { name: "Shopi", to: "/", class: "font-semibold text-lg" },
@@ -38,7 +39,7 @@ const NavBar = () => {
       </ul>
 
       <ul className="flex gap-3 items-center">
-        <li>dmartinezing16@gmail.com</li>
+        <li className="font-bold">dmartinezing16@gmail.com</li>
 
         {ContentRight.map((item, index) => (
           <li key={index}>
@@ -49,7 +50,8 @@ const NavBar = () => {
           </li>
         ))}
 
-        <li>
+        <li className="flex flex-row gap-2">
+          <ShoppingCartIcon className='size-5 text-black'></ShoppingCartIcon>
           {context.count}
         </li>
       </ul>
