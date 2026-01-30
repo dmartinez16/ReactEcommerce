@@ -3,6 +3,7 @@ import Layout from "../../Components/Layout"
 import Card from '../../Components/Card'
 import { getProducts } from "../../Services/products.service";
 import { Product } from "../../Types/product";
+import ProductDetail from "../../Components/ProductDetail";
 
 function Home() {
     const [items, setItems] = useState<Product[]>([]);
@@ -11,7 +12,6 @@ function Home() {
     const loadProducts = async () => {
       try {
         const products = await getProducts();
-        console.log(products)
         setItems(products);
       } catch (error) {
         console.error(error);
@@ -31,6 +31,7 @@ function Home() {
             <Card key={item.id} data={item} />
           ))}
         </div>
+        <ProductDetail/>
       </Layout>
     )
 }
