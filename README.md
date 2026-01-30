@@ -1,16 +1,70 @@
-# React + Vite
+# 🛒 React Ecommerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación **E-commerce** desarrollada con **React** y **Vite**, enfocada en el consumo de una API de productos y la gestión de un **carrito de compras** utilizando **Context API y Hooks personalizados**.
 
-Currently, two official plugins are available:
+El proyecto aplica una **arquitectura frontend escalable**, con separación clara entre componentes, páginas, servicios, hooks y tipos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🛍️ Listado de productos desde una API externa
+- 🔍 Vista de detalle del producto
+- ➕ Agregar productos al carrito
+- 🛒 Gestión global del carrito con **Context API**
+- ♻️ Uso de **Hooks personalizados**
+- 🔀 Enrutamiento por páginas
+- 📦 Tipado con TypeScript
+- 🎨 Estilos con CSS / Tailwind (según configuración)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologías utilizadas
+
+- **React**
+- **Vite**
+- **JavaScript / TypeScript**
+- **Axios**
+- **Context API**
+- **React Hooks**
+- **CSS / Tailwind**
+- **ESLint**
+
+---
+
+## 📂 Estructura del proyecto
+
+```text
+src/
+├── Api/
+│   └── axios.ts              # Configuración de Axios
+│
+├── Components/
+│   ├── Card/                 # Cards de productos
+│   ├── Layout/               # Layout general
+│   ├── Navbar/               # Barra de navegación
+│   └── ProductDetail/        # Detalle del producto
+│
+├── Context/
+│   └── ShoppingCartContext   # Contexto del carrito
+│
+├── Hooks/
+│   └── useShoppingCart.ts    # Hook personalizado del carrito
+│
+├── Pages/
+│   ├── App/                  # Configuración principal
+│   ├── Home/                 # Página principal
+│   ├── MyAccount/
+│   ├── MyOrder/
+│   ├── MyOrders/
+│   ├── SignIn/
+│   └── NotFound/
+│
+├── Services/
+│   └── products.service.ts   # Consumo de API de productos
+│
+├── Types/
+│   └── product.ts            # Tipos de datos
+│
+├── index.css
+└── main.jsx
