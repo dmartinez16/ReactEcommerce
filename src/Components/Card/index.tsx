@@ -7,23 +7,29 @@ interface CardProps {
   data: Product;
 }
 
-const FALLBACK_IMAGE =
-  "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg";
+const FALLBACK_IMAGE = "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg";
 
 const Card = ({ data }: CardProps) => {
+
+  const { count, setCount, openProductDetail, setProductToShow } = useShoppingCar();
+
   const getValidImage = (images: string[]) =>
     images.find(img => img?.startsWith("http")) || FALLBACK_IMAGE;
 
-  const [imgSrc, setImgSrc] = useState(
+  const [imgSrc] = useState(
     getValidImage(data.images)
   );
 
-  const { count, setCount, openProductDetail } = useShoppingCar();
+  const showProduct = () => {
+      openProductDetail()
+      setProductToShow(data)
+  }
+
 
   return (
     <div
       className='bg-white w-56 h-60 rounded-lg cursor-pointer'
-      onClick={openProductDetail}
+      onClick={showProduct}
     >
       <figure className='relative mb-2 w-full h-4/5'>
         <img
