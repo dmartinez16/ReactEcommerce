@@ -27,9 +27,9 @@ const NavBar = () => {
   const context = useContext(ShoppingCarContext)
   return (
     <nav className="flex justify-between font-light px-8 py-4 items-center text-sm fixed top-0 z-10 w-full">
-      <ul className="flex gap-2 items-center">
+      <ul className="flex gap-3 items-center">
         {ContentLeft.map((item, index) => (
-          <li key={index} className={item.class ?? ""}>
+          <li key={index + 1} className={item.class ?? ""}>
             <NavLink to={item.to} style={({ isActive }) =>
               isActive ? activeStyle : undefined}>
               {item.name}
@@ -38,11 +38,11 @@ const NavBar = () => {
         ))}
       </ul>
 
-      <ul className="flex gap-2 items-center">
+      <ul className="flex gap-1 items-center">
         <li className="font-bold">dmartinezing16@gmail.com</li>
 
         {ContentRight.map((item, index) => (
-          <li key={index}>
+          <li key={index + 1}>
             <NavLink to={item.to} style={({ isActive }) =>
               isActive ? activeStyle : undefined}>
               {item.name}
