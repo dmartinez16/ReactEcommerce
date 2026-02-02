@@ -3,6 +3,9 @@ import { createContext, useMemo, useState, ReactNode } from "react";
 interface ShoppingCarContextType {
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
+  isProductDetailOpen: boolean;
+  openProductDetail: () => void;
+  closeProductDetail: () => void;
 }
 
 interface ShoppingCarProviderProps {
@@ -14,11 +17,18 @@ export const ShoppingCarContext =
 
 export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => {
   const [count, setCount] = useState(0);
+  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
+
+  const openProductDetail = () => setIsProductDetailOpen(true);
+  const closeProductDetail = () => setIsProductDetailOpen(false);
 
   const value = useMemo(() => ({
     count,
     setCount,
-  }), [count]);
+    isProductDetailOpen,
+    openProductDetail,
+    closeProductDetail
+  }), [count, isProductDetailOpen]);
 
   return (
     <ShoppingCarContext.Provider value={value}>

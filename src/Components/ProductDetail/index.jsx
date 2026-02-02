@@ -1,12 +1,15 @@
 import './ProductDetailStyle.css'
 import { XCircleIcon } from '@heroicons/react/24/outline';
+import { useShoppingCar } from "../../Hooks/useShoppingCar";
 
 const ProductDetail = () => {
+
+      const { isProductDetailOpen, closeProductDetail } = useShoppingCar();
     return(
-        <aside className='product-detail flex flex-col fixed right-0 border border-black bg-white'>
+        <aside className={`${isProductDetailOpen ? 'flex' : 'hidden'} product-detail flex flex-col fixed right-0 border border-black bg-white`}>
             <div className='flex justify-between items-center align-items-center'>
                 <h2 className='font-medium text-xl'>Detail</h2>
-                <div><XCircleIcon className='h-7' /></div>
+                <div><XCircleIcon onClick={closeProductDetail} className={`h-7 cursor-pointer`}/></div>
             </div>
         </aside>
     )
