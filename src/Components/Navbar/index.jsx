@@ -4,7 +4,6 @@ import { ShoppingCarContext } from "../../Context";
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 
 let ContentLeft = [
-    { name: "Shopi", to: "/", class: "font-semibold text-lg" },
     { name: "All", to: "/"},
     { name: "Clothes", to: "/clothes"},
     { name: "Electronics", to: "/electronics"},
@@ -28,6 +27,7 @@ const NavBar = () => {
   return (
     <nav className="flex justify-between font-light px-8 py-4 items-center text-sm fixed top-0 z-10 w-full">
       <ul className="flex gap-3 items-center">
+        <li className="font-semibold text-lg" >Shopi</li>
         {ContentLeft.map((item, index) => (
           <li key={index + 1} className={item.class ?? ""}>
             <NavLink to={item.to} style={({ isActive }) =>

@@ -25,7 +25,6 @@ const Card = ({ data }: CardProps) => {
       setProductToShow(data)
   }
 
-
   return (
     <div
       className='bg-white w-56 h-60 rounded-lg cursor-pointer'
