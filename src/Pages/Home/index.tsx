@@ -25,7 +25,7 @@ function Home() {
 
   return (
       <Layout>
-        Home
+        <div className="font-bold">Home</div>
          <div className="grid grid-cols-4 gap-6 p-6">
           {items.map(item => (
             <Card key={item.id} data={item} />
