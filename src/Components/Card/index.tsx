@@ -11,8 +11,7 @@ const FALLBACK_IMAGE = "https://images.pexels.com/photos/1649771/pexels-photo-16
 
 const Card = ({ data }: CardProps) => {
 
-  const { count, setCount, openProductDetail, setProductToShow } = useShoppingCar();
-  console.log(data)
+  const { count, setCount, openProductDetail, setProductToShow, setcartProducts, cartProducts } = useShoppingCar();
  const getValidImage = (image?: string) =>
   image?.startsWith("http") ? image : FALLBACK_IMAGE;
 
@@ -24,6 +23,12 @@ const Card = ({ data }: CardProps) => {
   const showProduct = () => {
       openProductDetail()
       setProductToShow(data)
+  }
+
+  const addProductToCart = (productData: Product) => {
+    setCount(count + 1);
+    setcartProducts(prev => [...prev,productData])
+    console.log("Elemento agregado:", productData)
   }
 
   return (
@@ -41,12 +46,13 @@ const Card = ({ data }: CardProps) => {
 
           <button
             className='cursor-pointer absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1'
-            onClick={(e) => {
-              e.stopPropagation();
-              setCount(count + 1);
-            }}
+             onClick={(e) => {
+                e.stopPropagation();
+                addProductToCart(data);
+              }}
           >
-            <PlusIcon className="h-5 text-black font-bold" />
+            <PlusIcon className="h-5 text-black font-bold"
+            />
           </button>
         </figure>
 

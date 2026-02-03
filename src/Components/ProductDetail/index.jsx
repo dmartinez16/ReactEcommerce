@@ -4,8 +4,6 @@ import { useShoppingCar } from "../../Hooks/useShoppingCar";
 
 const ProductDetail = () => {
     const { isProductDetailOpen, closeProductDetail, productToShow } = useShoppingCar();
-    console.log(productToShow)
-
     const FALLBACK_IMAGE = "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg";
     if (!productToShow) return null;
 

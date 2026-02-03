@@ -9,6 +9,8 @@ interface ShoppingCarContextType {
   closeProductDetail: () => void;
   productToShow: any;
   setProductToShow: React.Dispatch<React.SetStateAction<any>>;
+  cartProducts: Product[];
+  setcartProducts: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
 interface ShoppingCarProviderProps {
@@ -31,6 +33,9 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
   //Product Detail - Show Product
   const [productToShow, setProductToShow] = useState<Product | null>(null);
 
+  //Shopping Cart - Add Products on Cart
+  const [cartProducts, setcartProducts] = useState<Product[]>([]);
+
   const value = useMemo(() => ({
     count,
     setCount,
@@ -38,8 +43,10 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
     openProductDetail,
     closeProductDetail,
     productToShow,
-    setProductToShow
-  }), [count, isProductDetailOpen,productToShow]);
+    setProductToShow,
+    cartProducts,
+    setcartProducts
+  }), [count, isProductDetailOpen, productToShow, cartProducts]);
 
   return (
     <ShoppingCarContext.Provider value={value}>
