@@ -9,7 +9,7 @@ const ProductDetail = () => {
     const FALLBACK_IMAGE = "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg";
     if (!productToShow) return null;
 
-    const imageSrc = productToShow.images?.[0] || FALLBACK_IMAGE;
+    const imageSrc = productToShow.image || FALLBACK_IMAGE;
 
     return(
         <aside className={`${isProductDetailOpen ? 'flex' : 'hidden'} product-detail fixed right-0 border border-black bg-white`}>
