@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ShoppingCarContext } from "../../Context";
-import { ShoppingCartIcon } from '@heroicons/react/24/outline'
+import { CreditCardIcon } from '@heroicons/react/24/outline'
 
 let ContentLeft = [
     { name: "All", to: "/"},
@@ -26,7 +26,7 @@ const NavBar = () => {
   const context = useContext(ShoppingCarContext)
   return (
     <nav className="flex justify-between font-light px-8 py-4 items-center text-sm fixed top-0 z-10 w-full">
-      <ul className="flex gap-3 items-center">
+      <ul className="flex gap-2 items-center">
         <li className="font-semibold text-lg" >Shopi</li>
         {ContentLeft.map((item, index) => (
           <li key={index + 1} className={item.class ?? ""}>
@@ -38,8 +38,8 @@ const NavBar = () => {
         ))}
       </ul>
 
-      <ul className="flex gap-1 items-center">
-        <li className="font-bold">dmartinezing16@gmail.com</li>
+      <ul className="flex gap-2 items-center">
+        <li className="font-bold">d.martinez@gmail.com</li>
 
         {ContentRight.map((item, index) => (
           <li key={index + 1}>
@@ -51,7 +51,7 @@ const NavBar = () => {
         ))}
 
         <li className="flex flex-row gap-2">
-          <ShoppingCartIcon className='size-5 text-black'></ShoppingCartIcon>
+          <CreditCardIcon className='size-5 text-black'></CreditCardIcon>
           {context.count}
         </li>
       </ul>

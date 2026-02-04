@@ -4,7 +4,7 @@ import { useShoppingCar } from "../../Hooks/useShoppingCar";
 
 const CheckoutSideMenu = () => {
 
-    const { isCheckOutSideMenuOpen, closeCheckOutSideMenuOpen } = useShoppingCar();
+    const { isCheckOutSideMenuOpen, closeCheckOutSideMenuOpen, cartProducts } = useShoppingCar();
     return(
         <aside className={`${isCheckOutSideMenuOpen ? 'flex' : 'hidden'} checkoutsidemenu-detail fixed right-0 border border-black bg-white`}>
             <div className='flex justify-between items-center align-items-center marg'>
@@ -14,6 +14,11 @@ const CheckoutSideMenu = () => {
                     className={`h-7 cursor-pointer`}/>
                 </div>
             </div>
+            {
+                cartProducts.map(() => {
+                    
+                })
+            }
         </aside>
     )
 }
