@@ -11,8 +11,7 @@ const FALLBACK_IMAGE = "https://images.pexels.com/photos/1649771/pexels-photo-16
 
 const Card = ({ data }: CardProps) => {
 
-  const { count, setCount, openProductDetail, setProductToShow } = useShoppingCar();
-  console.log(data)
+  const { count, setCount, openProductDetail, closeProductDetail ,setProductToShow, setcartProducts, openCheckOutSideMenuOpen } = useShoppingCar();
  const getValidImage = (image?: string) =>
   image?.startsWith("http") ? image : FALLBACK_IMAGE;
 
@@ -26,6 +25,20 @@ const Card = ({ data }: CardProps) => {
       setProductToShow(data)
   }
 
+  const addProductToCart = (productData: Product) => {
+      setCount(count + 1);
+
+      setcartProducts(prev => {
+      const updatedCart = [...prev, productData];
+      console.log("Carrito actualizado:", updatedCart);
+      
+      return updatedCart;
+    });
+
+      openCheckOutSideMenuOpen();
+      closeProductDetail();
+  }
+
   return (
     <div className=" mb-1 mt-1">
       <div
@@ -34,19 +47,20 @@ const Card = ({ data }: CardProps) => {
       >
         <figure className='relative mb-2 w-full h-4/5'>
           <img
-            className='w-full h-full object-cover rounded-lg'
+            className='w-full h-full object-contain rounded-lg'
             src={imgSrc}
             alt={data.title}
           />
 
           <button
             className='cursor-pointer absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1'
-            onClick={(e) => {
-              e.stopPropagation();
-              setCount(count + 1);
-            }}
+             onClick={(e) => {
+                e.stopPropagation();
+                addProductToCart(data);
+              }}
           >
-            <PlusIcon className="h-5 text-black font-bold" />
+            <PlusIcon className="h-5 text-black font-bold"
+            />
           </button>
         </figure>
 

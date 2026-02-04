@@ -4,8 +4,6 @@ import { useShoppingCar } from "../../Hooks/useShoppingCar";
 
 const ProductDetail = () => {
     const { isProductDetailOpen, closeProductDetail, productToShow } = useShoppingCar();
-    console.log(productToShow)
-
     const FALLBACK_IMAGE = "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg";
     if (!productToShow) return null;
 
@@ -19,7 +17,7 @@ const ProductDetail = () => {
             </div>
             <figure className='flex flex-col gap-0.5'>
                 <img 
-                    className='w-full h-80 object-cover rounded-md' 
+                    className='w-full h-80 object-contain rounded-md' 
                     src={imageSrc} 
                     alt={productToShow.title}
                     onError={(e) => (e.currentTarget.src = FALLBACK_IMAGE)}

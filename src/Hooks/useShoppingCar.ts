@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { ShoppingCarContext } from "../Context";
 
-//Función para contador del carrito
 export const useShoppingCar = () => {
   const context = useContext(ShoppingCarContext);
 

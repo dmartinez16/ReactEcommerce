@@ -4,11 +4,19 @@ import { Product } from "../Types/product";
 interface ShoppingCarContextType {
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
+  
   isProductDetailOpen: boolean;
   openProductDetail: () => void;
   closeProductDetail: () => void;
   productToShow: any;
+
+  isCheckOutSideMenuOpen: boolean;
+  openCheckOutSideMenuOpen: () => void;
+  closeCheckOutSideMenuOpen: () => void;
+
   setProductToShow: React.Dispatch<React.SetStateAction<any>>;
+  cartProducts: Product[];
+  setcartProducts: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
 interface ShoppingCarProviderProps {
@@ -28,8 +36,16 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
   const openProductDetail = () => setIsProductDetailOpen(true);
   const closeProductDetail = () => setIsProductDetailOpen(false);
 
+  //CheckOut Side Menu - Open/Close
+  const [isCheckOutSideMenuOpen, setIsCheckOutSideMenuOpen] = useState(false);
+  const openCheckOutSideMenuOpen = () => setIsCheckOutSideMenuOpen(true);
+  const closeCheckOutSideMenuOpen = () => setIsCheckOutSideMenuOpen(false);
+
   //Product Detail - Show Product
   const [productToShow, setProductToShow] = useState<Product | null>(null);
+
+  //Shopping Cart - Add Products on Cart
+  const [cartProducts, setcartProducts] = useState<Product[]>([]);
 
   const value = useMemo(() => ({
     count,
@@ -38,8 +54,13 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
     openProductDetail,
     closeProductDetail,
     productToShow,
-    setProductToShow
-  }), [count, isProductDetailOpen,productToShow]);
+    setProductToShow,
+    cartProducts,
+    setcartProducts,
+    openCheckOutSideMenuOpen,
+    closeCheckOutSideMenuOpen,
+    isCheckOutSideMenuOpen
+  }), [count, isProductDetailOpen, productToShow, cartProducts, isCheckOutSideMenuOpen]);
 
   return (
     <ShoppingCarContext.Provider value={value}>
