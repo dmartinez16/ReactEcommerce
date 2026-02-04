@@ -11,7 +11,7 @@ const FALLBACK_IMAGE = "https://images.pexels.com/photos/1649771/pexels-photo-16
 
 const Card = ({ data }: CardProps) => {
 
-  const { count, setCount, openProductDetail, setProductToShow, setcartProducts, cartProducts } = useShoppingCar();
+  const { count, setCount, openProductDetail, closeProductDetail ,setProductToShow, setcartProducts, openCheckOutSideMenuOpen } = useShoppingCar();
  const getValidImage = (image?: string) =>
   image?.startsWith("http") ? image : FALLBACK_IMAGE;
 
@@ -26,9 +26,17 @@ const Card = ({ data }: CardProps) => {
   }
 
   const addProductToCart = (productData: Product) => {
-    setCount(count + 1);
-    setcartProducts(prev => [...prev,productData])
-    console.log("Elemento agregado:", productData)
+      setCount(count + 1);
+
+      setcartProducts(prev => {
+      const updatedCart = [...prev, productData];
+      console.log("Carrito actualizado:", updatedCart);
+      
+      return updatedCart;
+    });
+
+      openCheckOutSideMenuOpen();
+      closeProductDetail();
   }
 
   return (
@@ -39,7 +47,7 @@ const Card = ({ data }: CardProps) => {
       >
         <figure className='relative mb-2 w-full h-4/5'>
           <img
-            className='w-full h-full object-cover rounded-lg'
+            className='w-full h-full object-contain rounded-lg'
             src={imgSrc}
             alt={data.title}
           />

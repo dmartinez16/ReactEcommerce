@@ -8,7 +8,7 @@ import './App.css'
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import Navbar from "../../Components/Navbar";
 import { ShoppingCarProvieder } from '../../Context'
-
+import CheckoutSideMenu  from '../../Components/CheckoutSideMenu'
 
 const AppRoutes = () => {
     let routes = useRoutes([
@@ -28,6 +28,7 @@ const App = () => {
       <BrowserRouter>
         <AppRoutes/>
         <Navbar/>
+        <CheckoutSideMenu/>
       </BrowserRouter>
     </ShoppingCarProvieder>
    

@@ -17,7 +17,7 @@ const ProductDetail = () => {
             </div>
             <figure className='flex flex-col gap-0.5'>
                 <img 
-                    className='w-full h-80 object-cover rounded-md' 
+                    className='w-full h-80 object-contain rounded-md' 
                     src={imageSrc} 
                     alt={productToShow.title}
                     onError={(e) => (e.currentTarget.src = FALLBACK_IMAGE)}
