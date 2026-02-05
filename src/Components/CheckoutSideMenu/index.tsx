@@ -5,7 +5,13 @@ import OrderCard from '../OrderCard';
 
 const CheckoutSideMenu = () => {
 
-    const { isCheckOutSideMenuOpen, closeCheckOutSideMenuOpen, cartProducts } = useShoppingCar();
+    const { isCheckOutSideMenuOpen, closeCheckOutSideMenuOpen, cartProducts, setcartProducts } = useShoppingCar();
+
+    const handleDelete = (id: number) => {
+        const filteredProducts = cartProducts.filter(product => product.id != id);
+        setcartProducts(filteredProducts);
+    }
+
     return(
         <aside className={`${isCheckOutSideMenuOpen ? 'flex' : 'hidden'} checkoutsidemenu-detail fixed right-0 border border-black bg-white`}>
             <div className='flex justify-between items-center align-items-center marg'>
@@ -19,9 +25,11 @@ const CheckoutSideMenu = () => {
                 cartProducts.map(product => (
                     <OrderCard
                         key={product.id}
+                        id={product.id}
                         title={product.title}
                         imageUrl={product.image}
                         price={product.price}
+                        handleDelete={handleDelete}
                     />
                 ))
             }
