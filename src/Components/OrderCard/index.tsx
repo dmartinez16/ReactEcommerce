@@ -1,8 +1,12 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const OrderCard = props => {
-    const {title, imageUrl, price} = props;
-    console.log(`Titulo: ${title}, Image:${imageUrl}`)
+interface OrderCardProps {
+  title: string;
+  imageUrl: string;
+  price: number;
+}
+
+const OrderCard = ({ title, imageUrl, price }: OrderCardProps) => {
     return(
         <div className="flex justify-between items-center gap-1">
             <div className="flex items-center gap-2">
