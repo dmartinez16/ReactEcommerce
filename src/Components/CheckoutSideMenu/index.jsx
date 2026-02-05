@@ -1,6 +1,7 @@
 import './CheckoutSideMenu.css'
 import { XCircleIcon } from '@heroicons/react/24/outline';
 import { useShoppingCar } from "../../Hooks/useShoppingCar";
+import OrderCard from '../OrderCard';
 
 const CheckoutSideMenu = () => {
 
@@ -15,9 +16,14 @@ const CheckoutSideMenu = () => {
                 </div>
             </div>
             {
-                cartProducts.map(() => {
-                    
-                })
+                cartProducts.map(product => (
+                    <OrderCard
+                        key={product.id}
+                        title={product.title}
+                        imageUrl={product.image}
+                        price={product.price}
+                    />
+                ))
             }
         </aside>
     )

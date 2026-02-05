@@ -2,9 +2,9 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const OrderCard = props => {
     const {title, imageUrl, price} = props;
-    
+    console.log(`Titulo: ${title}, Image:${imageUrl}`)
     return(
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-1">
             <div className="flex items-center gap-2">
                 <figure className="w-20 h-20">
                     <img

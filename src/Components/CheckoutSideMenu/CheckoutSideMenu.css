@@ -6,4 +6,9 @@
     border-radius: 1rem;
     flex-direction: column;
     gap: 2rem;
+    overflow: auto;
+}
+
+.checkoutsidemenu-detail::-webkit-scrollbar{
+    scrollbar-width: none;
 }
