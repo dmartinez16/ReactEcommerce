@@ -1,5 +1,5 @@
 import { createContext, useMemo, useState, ReactNode } from "react";
-import { Product } from "../Types/product";
+import { Product, Order } from "../Types/product";
 
 interface ShoppingCarContextType {
   count: number;
@@ -17,6 +17,9 @@ interface ShoppingCarContextType {
   setProductToShow: React.Dispatch<React.SetStateAction<any>>;
   cartProducts: Product[];
   setcartProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+
+  myOrders: Order[],
+  setmyOrders:  React.Dispatch<React.SetStateAction<Order[]>>;
 }
 
 interface ShoppingCarProviderProps {
@@ -47,6 +50,9 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
   //Shopping Cart - Add Products on Cart
   const [cartProducts, setcartProducts] = useState<Product[]>([]);
 
+  //Ordenes - Historial de compras
+  const [myOrders, setmyOrders] = useState<Order[]>([]);
+
   const value = useMemo(() => ({
     count,
     setCount,
@@ -59,8 +65,10 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
     setcartProducts,
     openCheckOutSideMenuOpen,
     closeCheckOutSideMenuOpen,
-    isCheckOutSideMenuOpen
-  }), [count, isProductDetailOpen, productToShow, cartProducts, isCheckOutSideMenuOpen]);
+    isCheckOutSideMenuOpen,
+    myOrders,
+    setmyOrders
+  }), [count, isProductDetailOpen, productToShow, cartProducts, isCheckOutSideMenuOpen, myOrders]);
 
   return (
     <ShoppingCarContext.Provider value={value}>
