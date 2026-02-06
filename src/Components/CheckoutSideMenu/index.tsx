@@ -2,6 +2,7 @@ import './CheckoutSideMenu.css'
 import { XCircleIcon } from '@heroicons/react/24/outline';
 import { useShoppingCar } from "../../Hooks/useShoppingCar";
 import OrderCard from '../OrderCard';
+import { totalPrice } from '../Utils/index'
 
 const CheckoutSideMenu = () => {
 
@@ -33,6 +34,12 @@ const CheckoutSideMenu = () => {
                     />
                 ))
             }
+            <div>
+                <p className='flex justify-between items-center'>
+                    <span className='font-semibold'>Total: </span>
+                    <span className='font-bold underline'>${totalPrice(cartProducts)}</span>
+                </p>
+            </div>
         </aside>
     )
 }
