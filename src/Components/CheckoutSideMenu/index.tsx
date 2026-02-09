@@ -4,6 +4,7 @@ import { useShoppingCar } from "../../Hooks/useShoppingCar";
 import OrderCard from '../OrderCard';
 import { totalPrice } from '../Utils/index'
 import { Order } from '../../Types/product';
+import { Link } from 'react-router-dom';
 const CheckoutSideMenu = () => {
 
     const { isCheckOutSideMenuOpen, closeCheckOutSideMenuOpen, cartProducts, setcartProducts, setmyOrders } = useShoppingCar();
@@ -34,26 +35,31 @@ const CheckoutSideMenu = () => {
                     className={`h-7 cursor-pointer`}/>
                 </div>
             </div>
-            {
-                cartProducts.map(product => (
-                    <OrderCard
-                        key={product.id}
-                        id={product.id}
-                        title={product.title}
-                        imageUrl={product.image}
-                        price={product.price}
-                        handleDelete={handleDelete}
-                    />
-                ))
-            }
+            <div className='flex gap-3.5 items-start flex-col w-full'>
+                {
+                    cartProducts.map(product => (
+                        <OrderCard
+                            key={product.id}
+                            id={product.id}
+                            title={product.title}
+                            imageUrl={product.image}
+                            price={product.price}
+                            handleDelete={handleDelete}
+                        />
+                    ))
+                }
+            </div>
             <div>
                 <p className='flex justify-between items-center'>
                     <span className='font-semibold'>Total: </span>
                     <span className='font-bold underline'>${totalPrice(cartProducts)}</span>
                 </p>
-                <button className='w-full bg-black text-center text-white mt-1.5 p-1.5 rounded'
-                    onClick={() => handleCheckOut()}>CheckOut
-                </button>
+                <Link to={'my-orders/last'}>
+                    <button className='cursor-pointer w-full bg-black text-center text-white mt-1.5 p-1.5 rounded'
+                        onClick={() => handleCheckOut()}>CheckOut
+                    </button>
+                </Link>
+                
             </div>
         </aside>
     )
