@@ -27,7 +27,7 @@ const CheckoutSideMenu = () => {
     }
 
     return(
-        <aside className={`${isCheckOutSideMenuOpen ? 'flex' : 'hidden'} checkoutsidemenu-detail fixed right-0 border border-black bg-white`}>
+        <aside className={`${isCheckOutSideMenuOpen ? 'flex' : 'hidden'} checkoutsidemenu-detail fixed right-0 border border-black bg-white overflow-auto`}>
             <div className='flex justify-between items-center align-items-center marg'>
                 <h2 className='font-medium text-xl'>My Order</h2>
                 <div>
@@ -35,7 +35,7 @@ const CheckoutSideMenu = () => {
                     className={`h-7 cursor-pointer`}/>
                 </div>
             </div>
-            <div className='flex gap-3.5 items-start flex-col w-full'>
+            <div className='flex gap-3.5 items-start flex-col w-full h-full overflow-auto'>
                 {
                     cartProducts.map(product => (
                         <OrderCard
@@ -49,7 +49,7 @@ const CheckoutSideMenu = () => {
                     ))
                 }
             </div>
-            <div>
+            <div className='mt-auto'>
                 <p className='flex justify-between items-center'>
                     <span className='font-semibold'>Total: </span>
                     <span className='font-bold underline'>${totalPrice(cartProducts)}</span>
