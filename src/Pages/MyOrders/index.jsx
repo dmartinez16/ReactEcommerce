@@ -1,8 +1,6 @@
 import Layaout from '../../Components/Layout'
 import OrdersCard from '../../Components/OrdersCard'
 import { useShoppingCar } from "../../Hooks/useShoppingCar";
-import { Link } from 'react-router-dom';
-const index = window.location.pathname.split('/')[1];
 
 function MyOrders() {
 
@@ -10,12 +8,13 @@ function MyOrders() {
   console.log('Datos:', myOrders)
   return (
     <Layaout>
-        MyOrders
+      <div className='mb-2.5'> MyOrders </div>
+        
         {
           myOrders.map((order) => (
-            <Link key={order.id} to={`/my-orders/${order.id}`}>
+            <div key={order.id} className='w-8/12 mt-1.5'>
               <OrdersCard order={order} />
-            </Link>
+            </div>
           ))
         }
        

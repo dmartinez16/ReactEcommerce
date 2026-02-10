@@ -25,7 +25,7 @@ const NavBar = () => {
   };
   const context = useContext(ShoppingCarContext)
   return (
-    <nav className="flex justify-between font-light px-8 py-4 items-center text-sm fixed top-0 z-10 w-full">
+    <nav className="flex justify-between font-light px-8 py-4 items-center text-sm fixed top-0  w-full -z-50">
       <ul className="flex gap-2 items-center">
         <li className="font-semibold text-lg" >Shopi</li>
         {ContentLeft.map((item, index) => (

@@ -48,7 +48,7 @@ function MyOrder() {
             <h1>My Order</h1>
         </div>
 
-         <div className='flex flex-col w-80'>
+         <div className='flex flex-col gap-8 h-[46rem] overflow-auto p-4 w-[30rem]'>
             {
                 selectedOrder.products?.map(product => (
                     <OrderCard
