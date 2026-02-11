@@ -8,7 +8,9 @@ function MyOrders() {
   console.log('Datos:', myOrders)
   return (
     <Layaout>
-      <div className='mb-2.5'> MyOrders </div>
+      <div className="flex items-center justify-center relative w-80 mb-4">
+          <h1 className="font-medium text-xl">My Orders</h1>
+        </div>
         
         {
           myOrders.map((order) => (

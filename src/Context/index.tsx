@@ -1,10 +1,14 @@
-import { createContext, useMemo, useState, ReactNode } from "react";
+import { createContext, useEffect, useMemo, useState, ReactNode } from "react";
 import { Product, Order } from "../Types/product";
+import { getProducts } from "../Services/products.service";
 
 interface ShoppingCarContextType {
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   
+  items: Product[];
+  setItems: React.Dispatch<React.SetStateAction<Product[]>>;
+
   isProductDetailOpen: boolean;
   openProductDetail: () => void;
   closeProductDetail: () => void;
@@ -20,6 +24,10 @@ interface ShoppingCarContextType {
 
   myOrders: Order[],
   setmyOrders:  React.Dispatch<React.SetStateAction<Order[]>>;
+
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+
 }
 
 interface ShoppingCarProviderProps {
@@ -33,6 +41,13 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
   
   //Contador de productos
   const [count, setCount] = useState(0);
+
+  ///Get Products
+  const [items, setItems] = useState<Product[]>([]);
+
+  //Get products Title
+  const [search, setSearch] = useState<string>("");
+  console.log('Busqueda:', search)
 
   //Product Detail - Open/Close
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
@@ -53,9 +68,24 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
   //Ordenes - Historial de compras
   const [myOrders, setmyOrders] = useState<Order[]>([]);
 
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const products = await getProducts();
+        setItems(products);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    loadProducts();
+  }, []);
+
   const value = useMemo(() => ({
     count,
     setCount,
+    items,
+    setItems,
     isProductDetailOpen,
     openProductDetail,
     closeProductDetail,
@@ -67,8 +97,10 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
     closeCheckOutSideMenuOpen,
     isCheckOutSideMenuOpen,
     myOrders,
+    search,
+    setSearch,
     setmyOrders
-  }), [count, isProductDetailOpen, productToShow, cartProducts, isCheckOutSideMenuOpen, myOrders]);
+  }), [count, items, isProductDetailOpen, productToShow, cartProducts, isCheckOutSideMenuOpen, myOrders, search]);
 
   return (
     <ShoppingCarContext.Provider value={value}>
