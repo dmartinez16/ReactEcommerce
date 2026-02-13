@@ -43,15 +43,6 @@ El proyecto implementa una **arquitectura frontend escalable y modular**, con se
 - Tipado fuerte con TypeScript para mayor escalabilidad.
 - Arquitectura preparada para crecer (más módulos o features).
 
----
-
-## 💻 Instalación y ejecución
-
-```bash
-git clone https://github.com/dmartinez16/ReactEcommerce
-cd ReactEcommerce
-npm install
-npm run dev
 
 🎯 Objetivo del Proyecto
 
