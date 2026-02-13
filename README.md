@@ -35,45 +35,6 @@ El proyecto implementa una **arquitectura frontend escalable y modular**, con se
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
-
-El proyecto está organizado siguiendo principios de escalabilidad y mantenibilidad:
-
-├── Api/
-│ └── axios.ts # Configuración centralizada de Axios
-│
-├── Components/
-│ ├── Card/ # Componente reutilizable de producto
-│ ├── Layout/ # Layout general de la aplicación
-│ ├── Navbar/ # Barra de navegación
-│ └── ProductDetail/ # Vista detallada del producto
-│
-├── Context/
-│ └── ShoppingCartContext # Contexto global del carrito
-│
-├── Hooks/
-│ └── useShoppingCart.ts # Lógica encapsulada del carrito
-│
-├── Pages/
-│ ├── App/ # Configuración principal de rutas
-│ ├── Home/ # Página principal con productos
-│ ├── MyAccount/
-│ ├── MyOrder/
-│ ├── MyOrders/
-│ ├── SignIn/
-│ └── NotFound/
-│
-├── Services/
-│ └── products.service.ts # Servicio de consumo de API
-│
-├── Types/
-│ └── product.ts # Definición de modelos y tipos
-│
-├── index.css
-└── main.jsx
-
----
-
 ## 📌 Decisiones Técnicas
 
 - Separación clara entre lógica de negocio y presentación.
