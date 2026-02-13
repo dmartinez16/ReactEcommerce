@@ -5,17 +5,14 @@ import { CreditCardIcon } from '@heroicons/react/24/outline'
 
 let ContentLeft = [
     { name: "All", to: "/"},
-    { name: "Clothes", to: "/clothes"},
+    { name: "Men's Clothing", to: "/mensclothing"},
+    { name: "Jewelery", to: "/jewelery"},
     { name: "Electronics", to: "/electronics"},
-    { name: "Furnitures", to: "/furniture"},
-    { name: "Toys", to: "/toys"},
-    { name: "Others", to: "/others"},
+    { name: "Women's clothing", to: "/womensclothing"}
 ]
  
 let ContentRight = [
     { name: "My Orders", to: "/my-orders" },
-    { name: "My Account", to: "/my-account" },
-    { name: "Sign In", to: "/signin" },
 ]
  
 

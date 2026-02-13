@@ -61,6 +61,7 @@ export const ShoppingCarProvieder = ({ children }: ShoppingCarProviderProps) => 
 
   //Product Detail - Show Product
   const [productToShow, setProductToShow] = useState<Product | null>(null);
+  console.log('Productos:', items)
 
   //Shopping Cart - Add Products on Cart
   const [cartProducts, setcartProducts] = useState<Product[]>([]);
